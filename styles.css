@@ -882,7 +882,7 @@ body.modo-noche .carta { background: rgba(255, 255, 255, 0.1); color: #FBF5EA; b
 .carta.asomada .carta-top { opacity: 1; transform: translateY(0); transition-delay: 1.4s; }
 
 .carta-texto,
-.carta .carta-texto { font-size: 1.4rem; line-height: 1.55; text-align: center; margin: 0; opacity: 0; transform: translateY(10px); transition: opacity 0.6s ease, transform 0.6s ease; min-height: 100px; font-family: 'Cormorant Garamond', serif !important; font-style: italic; font-weight: 500; }
+.carta .carta-texto { font-size: 1.19rem; line-height: 1.55; text-align: center; margin: 0; opacity: 0; transform: translateY(10px); transition: opacity 0.6s ease, transform 0.6s ease; min-height: 100px; font-family: 'Cormorant Garamond', serif !important; font-style: italic; font-weight: 500; }
 .carta.asomada .carta-texto { opacity: 1; transform: translateY(0); transition-delay: 1.4s; }
 
 .cursor-maquina { display: inline-block; width: 2px; height: 20px; background-color: #a0522d; vertical-align: middle; margin-left: 3px; animation: parpadeo-cursor 0.8s infinite; }
