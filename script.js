@@ -887,8 +887,6 @@ document.addEventListener("DOMContentLoaded", () => {
         void ramoInteractivo.offsetWidth; // Forzar reflow
         ramoInteractivo.classList.add("brillo");
         
-        lanzarPetalosRamo();
-        
         clearTimeout(tooltipTimer);
         tooltipTimer = setTimeout(() => {
             if (tooltipRamo) tooltipRamo.classList.remove("visible");
