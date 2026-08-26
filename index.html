@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Para Ti — Recuerdos Especiales</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="malla-geometrica" class="bg-mesh"></div>
+
+    <svg style="display: none;">
+        <filter id="liquid-glass">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
+
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+
+    <button class="btn-tema" id="btn-tema">🌙 Modo Noche</button>
+
+    <div id="petalos-flotantes" class="capa-particulas"></div>
+    <div id="luciernagas" class="capa-particulas"></div>
+
+    <div class="camara-cinematografica" id="pantalla-login">
+        <div class="tilt-wrapper-login">
+            <div class="pantalla">
+                <h1 class="titulo-elegante" id="titulo-login">Para Ti</h1>
+
+                <div class="huella-container" id="huella-box">
+                    <svg viewBox="0 0 220 260" class="huella-svg" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 20 40 L 20 20 A 20 20 0 0 1 40 20" />
+                        <path d="M 180 20 A 20 20 0 0 1 200 40 L 200 40" />
+                        <path d="M 20 220 L 20 240 A 20 20 0 0 0 40 240" />
+                        <path d="M 180 240 L 200 240 A 20 20 0 0 0 200 220" />
+                        <path d="M 30 160 L 30 100 A 80 90 0 0 1 190 100 L 190 160" />
+                        <path d="M 44 175 L 44 150 M 44 120 L 44 115 A 66 75 0 0 1 176 115 L 176 175" />
+                        <path d="M 58 190 L 58 130 A 52 60 0 0 1 162 130 L 162 135 M 162 165 L 162 190" />
+                        <path d="M 72 200 L 72 145 A 38 45 0 0 1 148 145 L 148 200" />
+                        <path d="M 86 210 L 86 190 M 86 170 L 86 160 A 24 30 0 0 1 134 160 L 134 210" />
+                        <path d="M 100 215 L 100 175 A 10 15 0 0 1 120 175 L 120 215" />
+                        <path d="M 100 225 L 110 215 L 120 225" />
+                        <path d="M 105 230 L 110 225 L 115 230" />
+                    </svg>
+                    <div class="latido-ring"></div>
+                    <div class="escaner-laser" id="escaner-laser"></div>
+                    <div class="scan-particles" id="scan-particles"></div>
+                    <svg class="check-aprobado" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="26" cy="26" r="21"/>
+                        <path d="M15 27 L22 34 L37 18"/>
+                    </svg>
+                </div>
+
+                <input type="password" id="input-password" class="input-pass-glass" placeholder="Introduce la contraseña">
+                <p class="estado-login" id="estado-login">Tú eres la llave mágica</p>
+                
+                <div class="login-dots" id="login-dots">
+                    <div class="login-dot"></div>
+                    <div class="login-dot"></div>
+                    <div class="login-dot"></div>
+                    <div class="login-dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contenedor-principal" class="oculto">
+        <div class="main-wrapper" id="main-escena">
+            <div class="tilt-wrapper cartas-ocultas" id="tilt-wrapper-cartas">
+                <div class="escenario-3d vista-isometrica" id="escenario">
+                    <div class="pantalla-interior">
+
+                        <div class="hoja active" id="hoja-0" onclick="seleccionarTarjeta(0)" style="--accent: var(--accent-neon)">
+                            <div class="chrome-bar" aria-hidden="true">
+                                <div class="cb-semaforo">
+                                    <span class="cb-dot cb-rojo"></span>
+                                    <span class="cb-dot cb-amarillo"></span>
+                                    <span class="cb-dot cb-verde"></span>
+                                </div>
+                                <div class="cb-url-wrap">
+                                    <span class="cb-lock">🔒</span>
+                                    <span class="cb-url-text">recuerdos/carta-magica</span>
+                                </div>
+                            </div>
+                            <div class="hoja-body central-absoluto">
+                                
+                                <!-- FLECHA INDICADORA -->
+                                <div class="flecha-sobre" id="flecha-sobre" aria-hidden="true">
+                                    <svg viewBox="0 0 60 70" xmlns="http://www.w3.org/2000/svg" width="52" height="60">
+                                        <defs>
+                                            <filter id="sombra-flecha">
+                                                <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="rgba(180,0,40,0.30)"/>
+                                            </filter>
+                                            <linearGradient id="grad-flecha" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%"   stop-color="#ff6b95"/>
+                                                <stop offset="100%" stop-color="#ff3d70"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M 10 5 L 50 5 Q 55 5 55 10 L 55 38 L 45 38 L 30 58 L 15 38 L 5 38 L 5 10 Q 5 5 10 5 Z"
+                                              fill="url(#grad-flecha)" stroke="rgba(255,255,255,0.7)" stroke-width="2"
+                                              stroke-linejoin="round" filter="url(#sombra-flecha)"/>
+                                    </svg>
+                                    <span class="flecha-sobre-label">tócame ✨</span>
+                                </div>
+                                
+                                <!-- CONTENEDOR SQUASH (Aisla el aplastamiento 2D del giro 3D) -->
+                                <div id="sobre-squash" style="width: 340px; height: 220px; position: relative;">
+                                    
+                                    <!-- NUEVO SISTEMA DE SOBRE 3D (dinosaurio.html) -->
+                                    <div class="image-container" id="sobre-flip">
+                                        
+                                        <div class="cara-frente">
+                                            <div class="sobre-aleta-izq"></div>
+                                            <div class="sobre-aleta-der"></div>
+                                            <div class="sobre-aleta-inf"></div>
+                                            <div class="sobre-aleta-sup">
+                                                <div class="sello-sobre">❤</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="cara-dorso" id="cara-dorso">
+                                            <div class="estrellas-sobre" id="estrellas-sobre"></div>
+                                            
+                                            <div class="carta" id="carta-interior">
+                                                <div class="carta-top">
+                                                    CONFIDENCIAL<br>
+                                                    <span id="fecha-hora" style="font-size: 8px; font-weight: 400; opacity: 0.8; letter-spacing: 0;"></span>
+                                                </div>
+                                                <p class="carta-texto" id="texto-0"></p>
+                                                <div class="carta-corazon-final">
+    <div class="firma-contenedor" id="firma-contenedor">
+        <!-- Tooltip para el mensaje sorpresa de las flores -->
+        <div class="tooltip-ramo" id="tooltip-ramo"></div>
+        
+        <!-- Imagen de las flores (Asegúrate de tener un archivo 'rosas.png' en tu carpeta) -->
+        <img src="rosas.png" alt="Rosas" class="flores-sello" id="ramo-interactivo">
+        
+        <!-- La firma lista para el efecto Typewriter -->
+        <span class="nombre-firma" id="firma-typing">Edgar</span>
+        
+        <!-- ❤️ Corazón Interactivo SVG con brillo ❤️ -->
+        <div class="corazon-firma-wrapper" id="corazon-firma-wrapper">
+            <div class="corazon-glow"></div>
+            <svg class="corazon-latido-svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 28.5l-2.15-1.95C6.2 20.65 2 16.55 2 11.5 2 7.35 5.35 4 9.5 4c2.35 0 4.6.6 6.5 2.1C17.9 4.6 20.15 4 22.5 4c4.15 0 7.5 3.35 7.5 7.5 0 5.05-4.2 9.15-11.85 15.1L16 28.5z"/>
+            </svg>
+        </div>
+    </div>
+</div>
+                                            </div>
+                                            
+                                            <div class="sobre-aleta-izq"></div>
+                                            <div class="sobre-aleta-der"></div>
+                                            <div class="sobre-aleta-inf"></div>
+                                            
+                                            <div class="sobre-aleta-sup" id="aleta-sup">
+                                                <div class="sello-sobre" id="sello-sobre">❤</div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <!-- FIN NUEVO SISTEMA -->
+                                </div>
+                                <!-- FIN CONTENEDOR SQUASH -->
+
+                            </div>
+                        </div>
+
+                        <div class="hoja stacked-1" id="hoja-1" onclick="seleccionarTarjeta(1)" style="--accent: var(--accent-warm)">
+                            <div class="chrome-bar" aria-hidden="true">
+                                <div class="cb-semaforo">
+                                    <span class="cb-dot cb-rojo"></span>
+                                    <span class="cb-dot cb-amarillo"></span>
+                                    <span class="cb-dot cb-verde"></span>
+                                </div>
+                                <div class="cb-url-wrap">
+                                    <span class="cb-lock">🔒</span>
+                                    <span class="cb-url-text">recuerdos/telegrama-urgente</span>
+                                </div>
+                            </div>
+                            <div class="hoja-body p-0">
+                                <div class="telegrama-wrapper">
+                                    <div class="telegrama-scanlines"></div>
+                                    <div class="telegrama-header">
+                                        <h2>TELEGRAMA · URGENTE</h2>
+                                        <span class="tel-meta">Nº 042 - FECHA: HOY - HORA: AHORA</span>
+                                    </div>
+                                    <div class="telegrama-content">
+                                        <p class="texto-maquina tg-font" id="texto-1"></p>
+                                        <!-- NUEVA SECCIÓN: Fotos colgantes (Agregar justo aquí) -->
+    <div class="cuerda-fotos-wrapper">
+        <div class="cuerda-hilo"></div>
+        
+        <div class="foto-colgada f1">
+            <div class="pinza"></div>
+            <img src="1.png" class="foto-polaroid" alt="Recuerdo 1">
+        </div>
+        
+        <div class="foto-colgada f2">
+            <div class="pinza"></div>
+            <img src="2.png" class="foto-polaroid" alt="Recuerdo 2">
+        </div>
+        
+        <div class="foto-colgada f3">
+            <div class="pinza"></div>
+            <img src="3.png" class="foto-polaroid" alt="Recuerdo 3">
+        </div>
+        
+        <div class="foto-colgada f4">
+            <div class="pinza"></div>
+            <img src="4.png" class="foto-polaroid" alt="Recuerdo 4">
+        </div>
+    </div>
+<img src="snoopy_love.gif" class="snoopy-mobile-gif" alt="Snoopy Love">
+    <!-- FIN NUEVA SECCIÓN -->
+                                    </div>
+                                    
+                                    <div class="sello-telegrama-wrap">
+                                        <svg class="sello-telegrama" viewBox="0 0 200 200">
+                                            <circle cx="100" cy="100" r="90" fill="none" stroke="#d62828" stroke-width="6"/>
+                                            <circle cx="100" cy="100" r="80" fill="none" stroke="#d62828" stroke-width="2"/>
+                                            <path id="curve" fill="transparent" d="M 30, 100 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0"/>
+                                            <text width="500">
+                                                <textPath href="#curve" fill="#d62828" font-family="'Outfit', sans-serif" font-weight="700" font-size="18" letter-spacing="4">
+                                                    ★ ENTREGADO CON AMOR ★ ENTREGADO CON AMOR ★ 
+                                                </textPath>
+                                            </text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hoja stacked-2" id="hoja-2" onclick="seleccionarTarjeta(2)" style="--accent: var(--accent-violet)">
+                            <div class="chrome-bar" aria-hidden="true">
+                                <div class="cb-semaforo">
+                                    <span class="cb-dot cb-rojo"></span>
+                                    <span class="cb-dot cb-amarillo"></span>
+                                    <span class="cb-dot cb-verde"></span>
+                                </div>
+                                <div class="cb-url-wrap">
+                                    <span class="cb-lock">🔒</span>
+                                    <span class="cb-url-text">recuerdos/nuestro-chat</span>
+                                </div>
+                            </div>
+                            <div class="hoja-body central-absoluto">
+                                
+                                <div class="smartphone" id="smartphone-3">
+                                    <div class="sp-glare"></div>
+                                    <div class="sp-notch"></div>
+                                    <div class="sp-screen">
+                                        <div class="sp-flash" id="sp-flash"></div>
+                                        
+                                        <div class="sp-chat-header">
+                                            <div class="sp-back">‹</div>
+                                            <div class="sp-avatar">❤</div>
+                                            <div class="sp-name">Amor<br><span>En línea</span></div>
+                                            <div class="sp-icons">📞 📹</div>
+                                        </div>
+                                        
+                                        <div class="sp-chat-area" id="sp-chat-area">
+                                        <!-- Contenedor interno para hacer scroll -->
+                                        <div class="sp-messages-container" id="sp-messages">
+        
+                                        <!-- Mensaje 1 -->
+                                        <div class="sp-bubble sp-msg-item" id="msg-1">
+                                        <p>Incluso en nuestras mayores locuras, no hay ningún lugar donde prefiera estar que junto a ti. 💕</p>
+                                        <div class="sp-meta">
+                                        <span class="sp-time">11:11</span>
+
+                <span class="sp-checks">✓✓</span>
+            </div>
+        </div>
+
+        <!-- Mensaje 2 (Foto) -->
+        <div class="sp-bubble sp-bubble-img sp-msg-item" id="msg-2">
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=400&q=80" alt="Foto especial" class="sp-img">
+            <div class="sp-meta sp-meta-img">
+                <span class="sp-time">11:12</span>
+                <span class="sp-checks">✓✓</span>
+            </div>
+        </div>
+
+        <!-- Mensaje 3 -->
+        <div class="sp-bubble sp-msg-item" id="msg-3">
+            <p style="font-size: 1.4rem; margin-bottom: 2px;">❤️</p>
+            <p>Te quiero más de lo que imaginas.</p>
+            <div class="sp-meta">
+                <span class="sp-time">11:13</span>
+                <span class="sp-checks">✓✓</span>
+            </div>
+        </div>
+
+        <!-- Indicador Escribiendo (al final de todos los mensajes) -->
+        <div class="sp-typing sp-msg-item" id="sp-typing">
+    <span class="burbuja-punto"></span>
+    <span class="burbuja-punto"></span>
+    <span class="burbuja-punto"></span>
+</div>
+        
+    </div>
+</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-dots" id="nav-dots">
+                <span class="nav-dot active" onclick="seleccionarTarjeta(0)"></span>
+                <span class="nav-dot" onclick="seleccionarTarjeta(1)"></span>
+                <span class="nav-dot" onclick="seleccionarTarjeta(2)"></span>
+            </div>
+
+        </div>
+    </div>
+                                    
+<!-- Botón Sorpresa (oculto inicialmente) -->
+<button id="btn-sorpresa" class="btn-sorpresa" onclick="iniciarSorpresa(event)">Sorpresa ✨</button>
+
+<!-- Contenedor de la escena sorpresa -->
+<div id="escena-sorpresa" class="escena-sorpresa">
+    <h3 class="mensaje-sorpresa">Solo puedes escoger uno, así que decide bien y cree en tu intuición</h3>
+    
+    <div class="tarjetas-container">
+        <!-- Tarjeta A -->
+        <div class="tarjeta-opcion" onclick="revelarTarjeta(this)">
+            <div class="tarjeta-inner">
+                <div class="tarjeta-front tarjeta-estilo-imagen2">
+                    <div class="mitad-superior">
+                        <span class="decoracion-hoja">🌿</span>
+                        <h4 class="letra-cursiva">Opción A</h4>
+                    </div>
+                    <div class="mitad-inferior">
+                        <span class="subtitulo-elegante">CREE EN TU INTUICIÓN</span>
+                    </div>
+                </div>
+                <div class="tarjeta-back tarjeta-estilo-imagen2">
+                     <div class="resultado-centrado">
+    <h4 class="letra-cursiva">¡Prepárate!</h4>
+    <p class="texto-resultado">Cenaremos muy rico, así que prepárate y paso por ti.</p>
+    
+    <div class="mensajes-finales">
+        <p class="fade-mensaje">Toma captura de pantalla y mándamela.</p>
+        <p class="fade-mensaje">Nos vemos pronto.</p>
+        <p class="te-quiero-typing" id="typing-A"></p>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta B -->
+        <div class="tarjeta-opcion" onclick="revelarTarjeta(this)">
+            <div class="tarjeta-inner">
+                <div class="tarjeta-front tarjeta-estilo-imagen2">
+                    <div class="mitad-superior">
+                        <span class="decoracion-hoja">🌿</span>
+                        <h4 class="letra-cursiva">Opción B</h4>
+                    </div>
+                    <div class="mitad-inferior">
+                        <span class="subtitulo-elegante">CREE EN TU INTUICIÓN</span>
+                    </div>
+                </div>
+                <div class="tarjeta-back tarjeta-estilo-imagen2">
+                     <div class="resultado-centrado">
+    <h4 class="letra-cursiva">¡Genial!</h4>
+    <p class="texto-resultado">Disfrutemos de una muy buena peli juntos.</p>
+    
+    <div class="mensajes-finales">
+        <p class="fade-mensaje">Toma captura de pantalla y mándamela.</p>
+        <p class="fade-mensaje">Nos vemos pronto.</p>
+        <p class="te-quiero-typing" id="typing-B"></p>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta C -->
+        <div class="tarjeta-opcion" onclick="revelarTarjeta(this)">
+            <div class="tarjeta-inner">
+                <div class="tarjeta-front tarjeta-estilo-imagen2">
+                    <div class="mitad-superior">
+                        <span class="decoracion-hoja">🌿</span>
+                        <h4 class="letra-cursiva">Opción C</h4>
+                    </div>
+                    <div class="mitad-inferior">
+                        <span class="subtitulo-elegante">CREE EN TU INTUICIÓN</span>
+                    </div>
+                </div>
+                <div class="tarjeta-back tarjeta-estilo-imagen2">
+                     <div class="resultado-centrado">
+    <h4 class="letra-cursiva">¡Vaya!</h4>
+    <p class="texto-resultado">Ésta, supongo es la mejor opción, así que iremos a un lugar sumamente interesante.</p>
+    
+    <div class="mensajes-finales">
+        <p class="fade-mensaje">Toma captura de pantalla y mándamela.</p>
+        <p class="fade-mensaje">Nos vemos pronto.</p>
+        <p class="te-quiero-typing" id="typing-C"></p>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
