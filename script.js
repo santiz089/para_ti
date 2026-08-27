@@ -455,6 +455,7 @@ document.addEventListener("DOMContentLoaded", () => {
             await delay(esperaTyping);
             if (signal.aborted) return;
             typing.classList.remove("show");
+           void typing.offsetWidth;
             msgEl.classList.add("show");
             sp.classList.add("vibrating");
             scrollDown();
